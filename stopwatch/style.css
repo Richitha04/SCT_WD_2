@@ -1,0 +1,116 @@
+/* style.css */
+
+/* Set a light blue background for the page */
+body {
+    background-color: #a0d8ef; /* Light blue background */
+    color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Main container for stopwatch */
+.container {
+    position: relative;
+    text-align: center;
+    border: 3px solid #5b9bd5; /* Darker blue border */
+    padding: 20px;
+    width: 300px;
+    height: 300px; /* Set a height for the container */
+    background-color: #5b9bd5; /* Slightly darker blue for the main container */
+    border-radius: 10px;
+    z-index: 2; /* Keep the box on top */
+}
+
+/* Hearts background using pseudo-elements */
+body::before {
+    content: "💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙💙";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #89c2d9; /* Light blue hearts */
+    opacity: 0.3;
+    font-size: 2em; /* Increase heart size */
+    display: flex;
+    flex-wrap: wrap;
+    pointer-events: none;
+    z-index: 1; /* Behind the container */
+    animation: float 10s ease-in-out infinite; /* Add floating animation */
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {  
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Move back down */
+    }
+}
+
+/* Ensures main content stays on top */
+.container > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Title styling */
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Timer display */
+#timer {
+    font-size: 3em;
+    margin: 10px 0;
+    color: #001f3f; /* Darker blue for contrast */
+}
+
+/* Buttons styling */
+.buttons button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 5px;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#laps {
+    margin-top: 20px;
+}
+
+/* Laps heading */
+#laps h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #001f3f;
+}
+
+/* Laps list styling */
+#lapsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Individual lap styling */
+#lapsList li {
+    font-size: 1em;
+    margin: 5px 0;
+    background-color: #3a7ca5; /* Slightly darker blue for lap items */
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
